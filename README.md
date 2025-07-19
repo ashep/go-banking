@@ -1,1 +1,1 @@
-# go-banking
+# Go Banking Library
