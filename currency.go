@@ -51,13 +51,13 @@ type CurrencyRate struct {
 	Date   time.Time       `json:"date"`   // The date and time when the rate was last updated
 }
 
-func NewCurrencyByCode(code string) (*Currency, error) {
+func NewCurrencyByCode(code string) (Currency, error) {
 	num, exists := currencyNumbers[code]
 	if !exists {
-		return nil, ErrCurrencyNotFound
+		return Currency{}, ErrCurrencyNotFound
 	}
 
-	return &Currency{
+	return Currency{
 		Code:   code,
 		Num:    num,
 		Digits: currencyDigits[num],
@@ -65,13 +65,13 @@ func NewCurrencyByCode(code string) (*Currency, error) {
 	}, nil
 }
 
-func NewCurrencyByNum(num int) (*Currency, error) {
+func NewCurrencyByNum(num int) (Currency, error) {
 	code, exists := currencyCodes[num]
 	if !exists {
-		return nil, ErrCurrencyNotFound
+		return Currency{}, ErrCurrencyNotFound
 	}
 
-	return &Currency{
+	return Currency{
 		Code:   code,
 		Num:    num,
 		Digits: currencyDigits[num],
