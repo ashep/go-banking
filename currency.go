@@ -51,6 +51,11 @@ type CurrencyRate struct {
 	Date   time.Time       `json:"date"`   // The date and time when the rate was last updated
 }
 
+type CurrencyRateChange struct {
+	Before CurrencyRate `json:"before"` // The currency rate before the change
+	After  CurrencyRate `json:"after"`  // The currency rate after the change
+}
+
 func NewCurrencyByCode(code string) (Currency, error) {
 	num, exists := currencyNumbers[code]
 	if !exists {
