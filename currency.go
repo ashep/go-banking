@@ -45,10 +45,11 @@ type Currency struct {
 }
 
 type CurrencyRate struct {
-	Base   Currency        `json:"base"`   // The currency being converted from
-	Target Currency        `json:"target"` // The currency being converted to
-	Rate   decimal.Decimal `json:"rate"`   // How much of currency `Base` you need to get 1 unit of currency `Target`
-	Date   time.Time       `json:"date"`   // The date and time when the rate was last updated
+	Provider string          `json:"provider"` // The provider of the currency rate
+	Base     Currency        `json:"base"`     // The currency being converted from
+	Target   Currency        `json:"target"`   // The currency being converted to
+	Rate     decimal.Decimal `json:"rate"`     // How much of currency `Base` you need to get 1 unit of currency `Target`
+	Date     time.Time       `json:"date"`     // The date and time when the rate was last updated
 }
 
 type CurrencyRateChange struct {
