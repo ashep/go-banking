@@ -84,3 +84,23 @@ func NewCurrencyByNum(num int) (Currency, error) {
 		Icon:   currencyIcons[code],
 	}, nil
 }
+
+func NewCurrencyRateByCodes(bankID, baseCode, targetCode string, rate decimal.Decimal, date time.Time) (CurrencyRate, error) {
+	base, err := NewCurrencyByCode(baseCode)
+	if err != nil {
+		return CurrencyRate{}, err
+	}
+
+	target, err := NewCurrencyByCode(targetCode)
+	if err != nil {
+		return CurrencyRate{}, err
+	}
+
+	return CurrencyRate{
+		BankID: bankID,
+		Base:   base,
+		Target: target,
+		Rate:   rate,
+		Date:   date,
+	}, nil
+}
