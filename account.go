@@ -5,10 +5,10 @@ import (
 )
 
 type Account struct {
-	ID        string    `db:"id"`
-	BankID    string    `db:"bank_id"`
-	Name      string    `db:"name"`
-	Balance   float64   `db:"balance"`
-	CreatedAt time.Time `db:"created_at"`
-	UpdatedAt time.Time `db:"updated_at"`
+	ID        string    `json:"id"`
+	BankID    string    `json:"bank_id"`
+	Name      string    `json:"name"`
+	Balance   float64   `json:"balance"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }

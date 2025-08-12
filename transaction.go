@@ -5,15 +5,15 @@ import (
 )
 
 type Transaction struct {
-	ID             string    `db:"id"`
-	BankID         string    `db:"bank_id"`
-	AccountID      string    `db:"account_id"`
-	Amount         float64   `db:"amount"`
-	Balance        float64   `db:"balance"`
-	Description    string    `db:"description"`
-	CurrencyCode   int       `db:"currency_code"`
-	MCC            int       `db:"mcc"`
-	FeeAmount      float64   `db:"fee_amount"`
-	CashbackAmount float64   `db:"cashback_amount"`
-	CreatedAt      time.Time `db:"created_at"`
+	ID             string    `json:"id"`
+	BankID         string    `json:"bank_id"`
+	AccountID      string    `json:"account_id"`
+	Amount         float64   `json:"amount"`
+	Balance        float64   `json:"balance"`
+	Description    string    `json:"description"`
+	CurrencyCode   int       `json:"currency_code"`
+	MCC            int       `json:"mcc"`
+	FeeAmount      float64   `json:"fee_amount"`
+	CashbackAmount float64   `json:"cashback_amount"`
+	CreatedAt      time.Time `json:"created_at"`
 }
