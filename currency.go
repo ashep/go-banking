@@ -104,3 +104,23 @@ func NewCurrencyRateByCodes(bankID, baseCode, targetCode string, rate decimal.De
 		Date:   date,
 	}, nil
 }
+
+func NewCurrencyRateByNum(bankID string, baseNum, targetNum int, rate decimal.Decimal, date time.Time) (CurrencyRate, error) {
+	base, err := NewCurrencyByNum(baseNum)
+	if err != nil {
+		return CurrencyRate{}, err
+	}
+
+	target, err := NewCurrencyByNum(targetNum)
+	if err != nil {
+		return CurrencyRate{}, err
+	}
+
+	return CurrencyRate{
+		BankID: bankID,
+		Base:   base,
+		Target: target,
+		Rate:   rate,
+		Date:   date,
+	}, nil
+}
